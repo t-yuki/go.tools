@@ -78,6 +78,9 @@ func fixImports(fset *token.FileSet, f *ast.File) (added []string, err error) {
 				break
 			}
 			pkgName := xident.Name
+			if pkgName == "log" {
+				break
+			}
 			if refs[pkgName] == nil {
 				refs[pkgName] = make(map[string]bool)
 			}
